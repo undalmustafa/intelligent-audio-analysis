@@ -110,12 +110,12 @@ pio run --target upload
 
 ## Simulation with Wokwi
 
-Bu proje Wokwi ile ESP32 simülasyonunu destekler.
+This project supports ESP32 simulation with Wokwi.
 
-Simülasyon çalıştırma
-1. VS Code aç
-2. edge/ klasörünü aç
-3. Wokwi for VS Code extension kur
+Running simulation:
+1. Open VS Code
+2. Open edge/ folder
+3. Install Wokwi for VS Code extension
 4. Ctrl + Shift + P
 5. Wokwi: Start Simulator
 
