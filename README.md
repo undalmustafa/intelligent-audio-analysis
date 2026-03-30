@@ -86,6 +86,7 @@ docker-compose up -d
 ### 2. Run the Backend
 ```bash
 cd backend
+dotnet build
 dotnet run
 ```
 
@@ -98,27 +99,23 @@ pip install -r requirements.txt
 python main.py
 ```
 
-### 4. Open Frontend
-Open `frontend/index.html` in your browser, or use a local dev server.
+### 4. Initialize PlatformIO and Wokwi
+Running simulation:
+1. Open VS Code
+2. Open edge/ folder
+3. Install Wokwi for VS Code extension and PlatformIO
+4. Ctrl + Shift + P
+5. PlatformIO: Build
 
-### 5. Running PlatformIO
 ```bash
 cd edge
 pio run
 pio run --target upload
 ```
+6. Wokwi: Run Simulator
 
-## Simulation with Wokwi
-
-This project supports ESP32 simulation with Wokwi.
-
-Running simulation:
-1. Open VS Code
-2. Open edge/ folder
-3. Install Wokwi for VS Code extension
-4. Ctrl + Shift + P
-5. Wokwi: Start Simulator
-
+### 5. Open Frontend
+Open `frontend/index.html` in your browser, or use a local dev server.
 
 ## ⚙️ How It Works
 
