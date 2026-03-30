@@ -1,8 +1,8 @@
-# 🎙️ Intelligent Audio Analysis & Noise Reduction
+# Intelligent Audio Analysis & Noise Reduction
 
 A full-stack IoT study case project for capturing, storing, and processing audio with intelligent noise reduction. Audio is captured by an ESP32 microcontroller, sent to a .NET 8 backend, stored in PostgreSQL, processed by a Python noise reduction service, and compared via a web dashboard.
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌──────────────┐       ┌───────────────────┐       ┌──────────────────┐
@@ -23,7 +23,7 @@ A full-stack IoT study case project for capturing, storing, and processing audio
 └──────────────┘
 ```
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 intelligent-audio-analysis/
@@ -53,7 +53,7 @@ intelligent-audio-analysis/
 └── README.md
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer       | Technology                     |
 |-------------|--------------------------------|
@@ -64,7 +64,7 @@ intelligent-audio-analysis/
 | Edge Device | ESP32 (PlatformIO/Wokwi)      |
 | CI/CD       | GitHub Actions                 |
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
@@ -103,7 +103,7 @@ Open `frontend/index.html` in your browser, or use a local dev server.
 5. **Backend** stores the processed audio back in PostgreSQL
 6. **Frontend** displays records with status tracking and audio comparison (raw vs processed)
 
-## 📋 Development Roadmap
+## Development Roadmap
 
 - [x] Project setup & folder structure
 - [x] PostgreSQL database with Docker Compose
@@ -115,6 +115,3 @@ Open `frontend/index.html` in your browser, or use a local dev server.
 - [x] Background processing queue for reliable audio processing
 - [x] CI/CD with GitHub Actions
 
-## 📄 License
-
-This project is a study case for educational purposes.
