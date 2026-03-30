@@ -13,11 +13,16 @@ namespace AudioBackend.Controllers
     public class AudioController : ControllerBase
     {
         private readonly IAudioService _audioService;
+        private readonly AudioProcessingQueue _processingQueue;
         private readonly ILogger<AudioController> _logger;
 
-        public AudioController(IAudioService audioService, ILogger<AudioController> logger)
+        public AudioController(
+            IAudioService audioService,
+            AudioProcessingQueue processingQueue,
+            ILogger<AudioController> logger)
         {
             _audioService = audioService;
+            _processingQueue = processingQueue;
             _logger = logger;
         }
 
@@ -39,9 +44,9 @@ namespace AudioBackend.Controllers
 
             var result = await _audioService.UploadAsync(uploadDto);
 
-            // Auto-trigger processing after upload
-            _logger.LogInformation("Auto-triggering processing for {Id}", result.Id);
-            _ = _audioService.TriggerProcessingAsync(result.Id);
+            // Enqueue for background processing (runs in its own DI scope)
+            _logger.LogInformation("Enqueuing audio for background processing: {Id}", result.Id);
+            await _processingQueue.EnqueueAsync(result.Id);
 
             return CreatedAtAction(nameof(GetRecords), new { id = result.Id }, result);
         }
@@ -96,7 +101,8 @@ namespace AudioBackend.Controllers
 
         /// <summary>
         /// POST /api/audio/{id}/process
-        /// Trigger noise reduction processing via the Python service.
+        /// Manually trigger noise reduction processing via the Python service.
+        /// Used for retrying failed or stuck records.
         /// </summary>
         [HttpPost("{id}/process")]
         public async Task<IActionResult> TriggerProcessing(Guid id)
@@ -107,16 +113,12 @@ namespace AudioBackend.Controllers
                 return NotFound(new { error = "Audio record not found." });
             }
 
-            _logger.LogInformation("Processing triggered for audio: {Id}", id);
+            _logger.LogInformation("Manual processing triggered for audio: {Id}, current status: {Status}", id, record.Status);
 
-            var success = await _audioService.TriggerProcessingAsync(id);
+            // Enqueue for background processing
+            await _processingQueue.EnqueueAsync(id);
 
-            if (success)
-            {
-                return Ok(new { message = "Audio processed successfully.", id });
-            }
-
-            return StatusCode(500, new { error = "Processing failed. Check logs." });
+            return Ok(new { message = "Audio queued for processing.", id });
         }
     }
 }

@@ -11,6 +11,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Application Services
 builder.Services.AddScoped<IAudioService, AudioService>();
 
+// Background processing queue + hosted service
+builder.Services.AddSingleton<AudioProcessingQueue>();
+builder.Services.AddHostedService<AudioProcessingBackgroundService>();
+
 // HttpClientFactory — Python service ile iletişim için
 builder.Services.AddHttpClient();
 
