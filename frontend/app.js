@@ -121,6 +121,11 @@ function renderRecords(records) {
             ? `<button class="btn btn-process" data-process-id="${record.id}" onclick="triggerProcessing('${record.id}')">⚙️ Process</button>`
             : '';
 
+        // Show spinner for records currently being processed
+        const processingIndicator = record.status === 'Processing'
+            ? `<span class="btn btn-process processing" disabled>⏳ Processing...</span>`
+            : '';
+
         // Show compare button only for Completed records
         const compareButton = record.hasProcessedAudio
             ? `<button class="btn btn-compare" onclick="selectRecord('${record.id}')">🔊 Compare</button>`
@@ -135,6 +140,7 @@ function renderRecords(records) {
                 <div class="record-actions">
                     <span class="record-status ${statusClass}">${record.status}</span>
                     ${processButton}
+                    ${processingIndicator}
                     ${compareButton}
                 </div>
             </div>
