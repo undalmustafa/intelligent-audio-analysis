@@ -1,0 +1,62 @@
+# ========================
+# .NET / C#
+# ========================
+backend/bin/
+backend/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+*.egg
+
+# ========================
+# Node / Frontend
+# ========================
+node_modules/
+npm-debug.log*
+
+# ========================
+# IDE / Editor
+# ========================
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ========================
+# OS Files
+# ========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ========================
+# Docker
+# ========================
+postgres_data/
+
+# ========================
+# Audio files (large)
+# ========================
+*.wav
+*.mp3
+*.flac
+!python-service/test_samples/
+
+# Staging temp
+_staging/
