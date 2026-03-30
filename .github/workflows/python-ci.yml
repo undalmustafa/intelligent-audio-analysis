@@ -1,3 +1,4 @@
+# CI pipeline for Python noise reduction service - lints and validates on push/PR
 name: Python Service CI
 
 on:
