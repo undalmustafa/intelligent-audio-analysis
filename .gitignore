@@ -58,5 +58,4 @@ postgres_data/
 *.flac
 !python-service/test_samples/
 
-# Staging temp
-_staging/
+
