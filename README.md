@@ -71,7 +71,14 @@ intelligent-audio-analysis/
 - [Python 3.10+](https://www.python.org/downloads/)
 - [Docker & Docker Compose](https://docs.docker.com/get-docker/)
 
-### 1. Start the Database
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/undalmustafa/intelligent-audio-analysis.git
+cd intelligent-audio-analysis
+```
+
+### 2. Start the Database
 ```bash
 docker-compose up -d
 ```
@@ -93,6 +100,25 @@ python main.py
 
 ### 4. Open Frontend
 Open `frontend/index.html` in your browser, or use a local dev server.
+
+### 5. Running PlatformIO
+```bash
+cd edge
+pio run
+pio run --target upload
+```
+
+Wokwi ile Simülasyon
+
+Bu proje Wokwi ile ESP32 simülasyonunu destekler.
+
+Simülasyon çalıştırma
+1. VS Code aç
+2. edge/ klasörünü aç
+3. Wokwi for VS Code extension kur
+4. Ctrl + Shift + P
+5. Wokwi: Start Simulator
+
 
 ## ⚙️ How It Works
 
