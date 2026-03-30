@@ -108,7 +108,7 @@ pio run
 pio run --target upload
 ```
 
-Wokwi ile Simülasyon
+## Simulation with Wokwi
 
 Bu proje Wokwi ile ESP32 simülasyonunu destekler.
 
