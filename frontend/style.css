@@ -1,0 +1,367 @@
+/* ========================================
+   Intelligent Audio Analysis - Stylesheet
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-primary: #0f0f1a;
+    --bg-secondary: #1a1a2e;
+    --bg-card: #16213e;
+    --accent-primary: #0f3460;
+    --accent-glow: #e94560;
+    --accent-success: #00d2ff;
+    --accent-warning: #f5a623;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0b0;
+    --text-bright: #ffffff;
+    --border-color: rgba(233, 69, 96, 0.2);
+    --shadow-glow: 0 0 20px rgba(233, 69, 96, 0.15);
+    --radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Background gradient animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(15, 52, 96, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(233, 69, 96, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(0, 210, 255, 0.08) 0%, transparent 50%);
+    z-index: -1;
+    animation: bgPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes bgPulse {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* ---- Header ---- */
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    letter-spacing: -0.5px;
+    margin-bottom: 0.4rem;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ---- Card ---- */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition);
+}
+
+.card:hover {
+    border-color: rgba(233, 69, 96, 0.4);
+    box-shadow: 0 0 30px rgba(233, 69, 96, 0.2);
+}
+
+.card h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.section-info {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* ---- Status Grid ---- */
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.status-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.8rem;
+    border-radius: 20px;
+}
+
+.status-badge.online {
+    background: rgba(0, 210, 255, 0.15);
+    color: var(--accent-success);
+}
+
+.status-badge.offline {
+    background: rgba(233, 69, 96, 0.15);
+    color: var(--accent-glow);
+}
+
+.status-badge.info {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-bright);
+}
+
+/* ---- Buttons ---- */
+.btn {
+    padding: 0.75rem 1.8rem;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.3px;
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ---- Audio Players ---- */
+.audio-players {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+.player-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.player-box h3 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+}
+
+.player-box audio {
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+}
+
+/* ---- Records List ---- */
+.records-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.records-list .placeholder {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    padding: 1.5rem 0;
+}
+
+.record-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+}
+
+.record-item:hover {
+    background: rgba(233, 69, 96, 0.08);
+    border-left: 3px solid var(--accent-glow);
+}
+
+.record-item .record-info {
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.record-item .record-info strong {
+    color: var(--text-bright);
+}
+
+.record-item .record-info span {
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+}
+
+.record-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.record-item .record-status {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.record-status.pending {
+    background: rgba(245, 166, 35, 0.15);
+    color: var(--accent-warning);
+}
+
+.record-status.completed {
+    background: rgba(0, 210, 255, 0.15);
+    color: var(--accent-success);
+}
+
+.record-status.processing {
+    background: rgba(233, 69, 96, 0.15);
+    color: var(--accent-glow);
+}
+
+.record-status.failed {
+    background: rgba(255, 59, 48, 0.15);
+    color: #ff3b30;
+}
+
+/* ---- Action Buttons ---- */
+.btn-process {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.75rem;
+    background: linear-gradient(135deg, #f5a623, #e8931e);
+    color: #1a1a2e;
+    border-radius: 6px;
+}
+
+.btn-process:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(245, 166, 35, 0.4);
+}
+
+.btn-process.processing {
+    background: linear-gradient(135deg, #555, #444);
+    color: var(--text-secondary);
+}
+
+.btn-compare {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.75rem;
+    background: linear-gradient(135deg, #00d2ff, #00b4d8);
+    color: #1a1a2e;
+    border-radius: 6px;
+}
+
+.btn-compare:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 210, 255, 0.4);
+}
+
+/* ---- Hidden ---- */
+.hidden {
+    display: none;
+}
+
+/* ---- Footer ---- */
+footer {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 3px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .audio-players {
+        grid-template-columns: 1fr;
+    }
+
+    .status-grid {
+        grid-template-columns: 1fr;
+    }
+}

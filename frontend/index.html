@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Intelligent Audio Analysis - Analyze and compare raw vs noise-reduced audio from IoT devices." />
+    <title>Intelligent Audio Analysis</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Intelligent Audio Analysis</h1>
+        </header>
+
+        <main>
+            <!-- Status Panel -->
+            <section id="status-section" class="card">
+                <h2>System Status</h2>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="status-label">Backend API</span>
+                        <span id="backend-status" class="status-badge offline">Checking...</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Python Service</span>
+                        <span id="python-status" class="status-badge offline">Checking...</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Total Records</span>
+                        <span id="record-count" class="status-badge info">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audio Comparison -->
+            <section id="comparison-section" class="card hidden">
+                <h2>Audio Comparison</h2>
+                <div class="audio-players">
+                    <div class="player-box">
+                        <h3>🔊 Raw Audio (ESP32)</h3>
+                        <audio id="raw-audio" controls></audio>
+                    </div>
+                    <div class="player-box">
+                        <h3>✨ Processed Audio (Noise Reduced)</h3>
+                        <audio id="processed-audio" controls></audio>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Records List -->
+            <section id="records-section" class="card">
+                <h2>Audio Records</h2>
+                <p class="section-info">Audio captured by ESP32 IoT device and stored in PostgreSQL</p>
+                <div id="records-list" class="records-list">
+                    <p class="placeholder">No recordings yet. Start the ESP32 mock to send audio.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Intelligent Audio Analysis &mdash; Study Case Project</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
