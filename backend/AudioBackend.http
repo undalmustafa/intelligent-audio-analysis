@@ -1,0 +1,6 @@
+@AudioBackend_HostAddress = http://localhost:5076
+
+GET {{AudioBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
